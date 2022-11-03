@@ -1,0 +1,4 @@
+Write a python program that reads in a csv file and does the following:
+1. prints the field names of the csv.
+2. prints out each element of the first 10 rows in the csv file.
+3. prints the number of rows in the csv file.
