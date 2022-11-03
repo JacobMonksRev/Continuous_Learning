@@ -97,8 +97,8 @@
 ## TUPLE
 # my_tuple = ('Jacob','Bob','Maria')
 
-def calc(a,b):
-    return (a+b,a-b,a*b,a/b)
+# def calc(a,b):
+#     return (a+b,a-b,a*b,a/b)
 
 # x = calc(10,5)
 
@@ -128,16 +128,17 @@ def calc(a,b):
 #     counter += len(line.split())
 # print(counter)
 
-import csv
+# import csv
 
-mycsv = open('csvfile.csv')
-csvfile = csv.reader(mycsv)
-fields = []
-rows = []
-fields = next(csvfile)
-print('\t'.join(fields))
-for row in csvfile:
-    rows.append(row)
+# mycsv = open('csvfile.csv')
+# csvfile = csv.reader(mycsv)
+# fields = []
+# rows = []
+# fields = next(csvfile)
+# print('\t'.join(fields))
+# for row in csvfile:
+#     rows.append(row)
 
-for row in rows:
-    print('\t'.join(row))
+# for row in rows:
+#     print('\t'.join(row))
+# mycsv.close()
