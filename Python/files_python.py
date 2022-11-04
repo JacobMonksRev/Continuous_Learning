@@ -142,3 +142,54 @@
 # for row in rows:
 #     print('\t'.join(row))
 # mycsv.close()
+
+## EXCEPTIONS PYTHON
+
+# try:
+#     myfile = open('textfile.txt','r')
+# except FileNotFoundError:
+#     print("The File could not be found.")
+# else:
+#     for line in myfile:
+#         print(line)
+# finally:
+#     myfile.close()
+
+# import abc
+# from abc import abstractmethod
+
+# class Person:
+#     isHuman = True
+#     def __init__(self,name,age,gender):
+#         self.name = name
+#         self.age = age
+#         self.gender = gender
+#     def action(self):
+#         print(self.name,"Goes for a walk.")
+#     @abstractmethod
+#     def go_to_office(self):
+#         pass
+
+# class Employee(Person):
+#     def action(self,salary,department):
+#         print(self.name,"works for the",department,"department and makes",salary,"per year.")
+
+# Bob = Employee('Bob',40,'M')
+
+# print(Bob.action(50000,'HR'))
+
+# class Shapes:
+#     def __init__(self,name,sides):
+#         self.name = name
+#         self._sides = sides
+#     @abstractmethod
+#     def number_of_sides(self):
+#         pass
+
+# class Square(Shapes):
+#     def number_of_sides(self):
+#         print("This",self.name,"has",self.sides,"sides.")
+
+# shape1 = Shapes("square1",4)
+# print(shape1._sides)
+
