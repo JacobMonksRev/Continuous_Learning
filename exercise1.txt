@@ -1,4 +1,4 @@
-Write a python program that reads in a csv file and does the following:
-1. prints the field names of the csv.
-2. prints out each element of the first 10 rows in the csv file.
-3. prints the number of rows in the csv file.
+Write a python program that reads in a text file and does the following:
+1. Reads a text file called 'input.txt'.
+2. Counts the number of times each word appears in the file (excluding punctuation).
+3. Writes the wordcount data in csv format (word,count) to a file called 'output.csv'.
