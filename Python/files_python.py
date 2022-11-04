@@ -193,3 +193,27 @@
 # shape1 = Shapes("square1",4)
 # print(shape1._sides)
 
+## EXERCISE 1
+
+myfile = open('input.txt','r')
+my_dictionary = {}
+punctuation = [',',':',';',"!",'?','.',"'",'-']
+for line in myfile:
+    words = line.split()
+    for word in words:
+        for item in punctuation:
+            word = word.strip(item).lower()
+        if word in my_dictionary:
+            value = my_dictionary.get(word) + 1
+            my_dictionary[word] = value
+        else:
+            my_dictionary[word] = 1
+myfile.close()
+
+import csv
+
+myoutputfile = open('output.csv','x')
+outputwriter = csv.writer(myoutputfile)
+for k,v in my_dictionary.items():
+    kv = [k,v]
+    outputwriter.writerow(kv)
