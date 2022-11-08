@@ -1,0 +1,53 @@
+Create a table Employees:
+EmployeeId				=== PK
+Firstname
+Lastname
+Department
+Salary
+ReportsTo				=== FK
+
+Create at least 15 records in Employees.
+
+----------------------------------------------
+
+Write queries:
+Q.1) to get total salary of each department.
+Q.2) to get highest and lowest salary of each department.
+Q.3) to return the following data: EmployeeId, Firstname, Lastname, ReportsTo, Firstname of reporting manager, Lastname of reporting manager.
+Q.4) Top 5 salaried employees (id, firstname, lastname, salary).
+Q.5) Bottom 5 salaried employees (id, firstname, lastname, salary).
+
+-------------------------------------------------
+
+RANK(): Order values and assign them numbers in some order. For duplicate values, same no. is assigned and the next sequence is skipped.
+DENSE_RANK(): Order values and assign them numbers in some order. For duplicate values, same no. is assigned and the next sequence is not skipped.
+ROW_NUMBER(): Assigns nos. starting with 1 to specified criteria (PARTITION BY) and duplicate records will have continuous sequence (1,2,3...). Non-duplicate records will only have the no. 1.
+
+Ex. Top 5 salaried employees:
+CREATE OR REPLACE VIEW emp_view AS (SELECT DENSE_RANK() OVER(ORDER BY salary DESC) AS DenseRank, employees.emp_no, first_name, last_name, salary
+	FROM salaries
+	JOIN employees ON employees.emp_no = salaries.emp_no
+	WHERE to_date = '9999-01-01');
+SELECT * FROM emp_view
+WHERE emp_view.DenseRank <= 5;
+
+Or alternatively,
+
+SELECT * FROM	
+    (SELECT DENSE_RANK() OVER(ORDER BY salary DESC) AS DenseRank, employees.emp_no, first_name, last_name, salary
+	FROM salaries
+	JOIN employees ON employees.emp_no = salaries.emp_no
+	WHERE to_date = '9999-01-01') x
+WHERE x.DenseRank <= 5;
+-------------------------------------------------
+Using the employees database downloaded from: https://github.com/datacharmer/test_db
+
+Q1) Write a query that will give details of all the employees:
+emp_no, firstname, lastname, current department, current title, current salary.
+Q2) Top 5 salaried employees. DON't USE LIMIT.
+Q3) Top 5 salaried employees for 'Finance' department.
+Q4) Bottom 5 salaried employees.
+Q5) Bottom 5 salaried employees for 'Development' department.
+Q6) Total Salary per department. (dept, total salary).
+
+Q7) Select the employees that are getting the salary that is greater than the average salary of the department they are working in.
